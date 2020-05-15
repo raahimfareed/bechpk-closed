@@ -1,0 +1,30 @@
+.slider img {
+    filter: brightness(10%);
+}
+
+// Inline Nav Categories
+.list-inline {
+    padding: 0;
+    margin-left: -5px;
+    list-style: none;
+}
+
+.list-inline li {
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.footer-links-size {
+    font-size: 13px;
+}
+
+.social-links img {
+    width: 32px;
+}
+
+.link-transition {
+    transition: color ease-in 100ms;
+    &:hover {
+        color: #333 !important;
+    }
+}

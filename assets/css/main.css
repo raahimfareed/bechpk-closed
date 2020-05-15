@@ -1,0 +1,33 @@
+.slider img {
+  -webkit-filter: brightness(10%);
+          filter: brightness(10%);
+}
+
+.list-inline {
+  padding: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+
+.list-inline li {
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.footer-links-size {
+  font-size: 13px;
+}
+
+.social-links img {
+  width: 32px;
+}
+
+.link-transition {
+  -webkit-transition: color ease-in 100ms;
+  transition: color ease-in 100ms;
+}
+
+.link-transition:hover {
+  color: #333 !important;
+}
+/*# sourceMappingURL=main.css.map */
