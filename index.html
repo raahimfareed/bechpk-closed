@@ -15,24 +15,28 @@
 
 <body class="grey lighten-4">
     <!-- Navigation Bar -->
-    <nav class="nav-extended grey lighten-2">
-        <div class="nav-wrapper grey lighten-2">
-            <div class="container">
-                <a href="index.php" class="brand-logo green-text text-lighten-1"><b>Bech.pk</b></a>
-                <a href="#!" class="sidenav-trigger" data-target="main-mobile-nav"><i
-                        class="material-icons grey-text text-darken-4">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="" class="green-text text-lighten-1"><b>LOGIN</b></a></li>
-                    <li><a href="" class="btn btn-large green"><i class="material-icons left">camera_alt</i><b>SELL</b></a></li>
-                </ul>
+    <div class="navbar-fixed">
+        <nav class="grey lighten-2">
+            <div class="nav-wrapper grey lighten-2">
+                <div class="container">
+                    <a href="index.php" class="brand-logo green-text text-lighten-1"><b>Bech.pk</b></a>
+                    <a href="#!" class="sidenav-trigger" data-target="main-mobile-nav"><i
+                            class="material-icons grey-text text-darken-4">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="" class="green-text text-lighten-1"><b>LOGIN</b></a></li>
+                        <li><a href="" class="btn btn-large green"><i
+                                    class="material-icons left">camera_alt</i><b>SELL</b></a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <nav class="hide-on-small-only">
-        <div class="nav-wrapper grey lighten-3">
+        </nav>
+    </div>
+    <nav class="search">
+        <div class="nav-wrapper grey lighten-2">
             <form class="container" method="get" action="post">
                 <div class="input-field">
-                    <input id="search" class="tooltipped" type="search" data-position="bottom" data-tooltip="Search for Mobiles, Cars, and much more" title="" required />
+                    <input id="search" class="tooltipped" type="search" data-position="bottom"
+                        data-tooltip="Search for Mobiles, Cars, and much more" title="" required />
                     <label class="label-icon" for="search"><i class="material-icons grey-text">search</i></label>
                     <i class="material-icons">close</i>
                 </div>
@@ -40,12 +44,14 @@
         </div>
     </nav>
 
+
     <!-- Main Products Showcase -->
     <main>
-        <div class="grey lighten-4">
+        <div class="nav-category">
             <div class="container">
                 <ul class="list-inline">
-                    <li><a href="#!"><b class="valign-wrapper black-text">Categories <i class="material-icons">keyboard_arrow_down</i></b></a></li>
+                    <li><a href="#!"><b class="valign-wrapper black-text">Categories <i
+                                    class="material-icons">keyboard_arrow_down</i></b></a></li>
                     <li><a href="#!" class="grey-text text-darken-2 link-transition">Mobiles</a></li>
                     <li><a href="#!" class="grey-text text-darken-2 link-transition">Laptops</a></li>
                     <li><a href="#!" class="grey-text text-darken-2 link-transition">Automobiles</a></li>
@@ -56,11 +62,12 @@
                 </ul>
             </div>
         </div>
-    
+
         <ul class="sidenav" id="main-mobile-nav">
             <li><a href="" class="green-text"><b>LOGIN</b></a></li>
             <li><a href="" class="btn btn-large green"><i class="material-icons left">camera_alt</i><b>SELL</b></a></li>
         </ul>
+
         <div class="slider">
             <ul class="slides">
                 <li>
@@ -87,11 +94,17 @@
             </ul>
         </div>
 
+        <div class="fixed-action-btn">
+            <a href="" class="btn-floating btn-large green">
+                <i class="material-icons">feedback</i>
+            </a>
+        </div>
+
         <section>
             <div class="container">
                 <h4 class="grey-text text-darken-4">
                     New Listings
-                </h5>
+                </h4>
                 <div class="row">
                     <div class="col s6 m4 l3">
                         <a href="http://www.google.com/">
@@ -149,6 +162,62 @@
                             </div>
                         </a>
                     </div>
+                    <div class="col s6 m4 l3">
+                        <a href="http://www.google.com/">
+                            <div class="card hoverable">
+                                <div class="card-image">
+                                    <img src="https://source.unsplash.com/250x249/?mobile" alt="" />
+                                </div>
+                                <div class="card-content">
+                                    <h6 class="truncate black-text"><b>47,000</b></h6>
+                                    <p class="truncate grey-text text-darken-2">Buy Samsung S8+</p>
+                                    <p class="right-align grey-text"><small>Today</small></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s6 m4 l3">
+                        <a href="http://www.google.com/">
+                            <div class="card hoverable">
+                                <div class="card-image">
+                                    <img src="https://source.unsplash.com/250x248/?mobile" alt="" />
+                                </div>
+                                <div class="card-content">
+                                    <h6 class="truncate black-text"><b>23,000</b></h6>
+                                    <p class="truncate grey-text text-darken-2">Buy iPhone 5s</p>
+                                    <p class="right-align grey-text"><small>Today</small></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s6 m4 l3">
+                        <a href="">
+                            <div class="card hoverable">
+                                <div class="card-image">
+                                    <img src="https://source.unsplash.com/250x247/?mobile" alt="" />
+                                </div>
+                                <div class="card-content">
+                                    <h6 class="truncate black-text"><b>77,000</b></h6>
+                                    <p class="truncate grey-text text-darken-2">Huawei Mate 10S</p>
+                                    <p class="right-align grey-text"><small>Today</small></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s6 m4 l3">
+                        <a href="">
+                            <div class="card hoverable">
+                                <div class="card-image">
+                                    <img src="https://source.unsplash.com/250x246/?mobile" alt="" />
+                                </div>
+                                <div class="card-content">
+                                    <h6 class="truncate black-text"><b>47,000</b></h6>
+                                    <p class="truncate grey-text text-darken-2">Buy Samsung S8+</p>
+                                    <p class="right-align grey-text"><small>Today</small></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -161,27 +230,36 @@
                     <ul>
                         <li class="grey-text text-darken-4"><b>Popular Categories</b></li>
                         <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Cars</a></li>
-                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Flats for Rent</a></li>
+                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Flats for
+                                Rent</a></li>
                         <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Jobs</a></li>
-                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Mobiles</a></li>
+                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Mobiles</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col s6 l3">
                     <ul>
                         <li class="grey-text text-darken-4"><b>Hot Searches</b></li>
-                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Bikes</a></li>
-                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Watches</a></li>
-                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Books</a></li>
+                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Bikes</a>
+                        </li>
+                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Watches</a>
+                        </li>
+                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Books</a>
+                        </li>
                         <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Dogs</a></li>
                     </ul>
                 </div>
                 <div class="col s6 l3">
                     <ul>
                         <li class="grey-text text-darken-4"><b>About Us</b></li>
-                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">About Bech.pk</a></li>
-                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Bech Blog</a></li>
-                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Contact Us</a></li>
-                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Bech for Businesses</a></li>
+                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">About
+                                Bech.pk</a></li>
+                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Bech Blog</a>
+                        </li>
+                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Contact
+                                Us</a></li>
+                        <li><a href="#!" class="grey-text text-darken-1 footer-links-size link-transition">Bech for
+                                Businesses</a></li>
                     </ul>
                 </div>
                 <div class="col s6 l3">
@@ -222,6 +300,7 @@
     <script src="assets/js/init/mobile-nav.js"></script>
     <script src="assets/js/init/slider.js"></script>
     <script src="assets/js/init/tooltip.js"></script>
+    <script src="assets/js/init/floating-action-btn.js"></script>
 </body>
 
 </html>
