@@ -1,5 +1,5 @@
 <?php
-sessino_start();
+session_start();
 
 if (isset($_SESSION['user_id']) && isset($_GET['user_id'])) {
     if (!empty($_SESSION['user_id']) && !empty($_GET['user_id'])) {

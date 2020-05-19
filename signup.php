@@ -33,12 +33,10 @@ session_start();
                                     <p>
                                         <b class="red-text">
                                             <?php
-                                            // var_dump($_SESSION['errors_array']);
                                             if (isset($_SESSION['signup_errors_array']) && !empty($_SESSION['signup_errors_array'])) {
                                                 foreach ($_SESSION['signup_errors_array'] as $error) {
                                                     echo $error;
                                                 }
-                                                // $_SESSION['errors_array'] = [];
                                             }
                                             ?>
                                         </b>
