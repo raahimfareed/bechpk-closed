@@ -6,3 +6,4 @@
     <script src="assets/js/init/tooltip.js"></script>
     <script src="assets/js/init/floating-action-btn.js"></script>
     <script src="assets/js/init/modal.js"></script>
+    <script src="assets/js/init/dropdown.js"></script>

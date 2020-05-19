@@ -17,6 +17,8 @@ if (!isset($_SESSION['initial_signup'])) {
 
 <body class="grey lighten-4">
     <?php include('modules/navbar.php'); ?>
+    <?php include('modules/sidenav.php'); ?>
+
 
         <?php include('modules/feedback_btn.php'); ?>
 

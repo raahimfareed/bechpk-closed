@@ -7,7 +7,17 @@
                     <a href="#!" class="sidenav-trigger" data-target="main-mobile-nav"><i
                             class="material-icons grey-text text-darken-4">menu</i></a>
                     <ul class="right hide-on-med-and-down">
+                        <?php if(!isset($_SESSION['user_id'])) {?>
                         <li><a href="#login" class="green-text text-darken-1 modal-trigger"><b>LOGIN</b></a></li>
+                        <?php
+                        } else {
+                            $User = new User();
+                            $User -> GetInfo($_SESSION['user_id']);
+                        ?>
+                        <li class="valign-wrapper"><a href="#" class="green-text text-darken-1 modal-trigger valign-wrapper dropdown-trigger" data-target="userMenu"><img class="navbar-img" src="<?php echo $User -> GetProfileImage() ?>" alt=""> &nbsp; <b><?php echo $User -> GetFirstName(); ?></b></a></li>
+                        <?php
+                        }
+                        ?>
                         <li><a href="sell.php" class="btn btn-large green darken-1"><i
                                     class="material-icons left">camera_alt</i><b>SELL</b></a></li>
                     </ul>
@@ -46,8 +56,27 @@
                 </ul>
             </div>
         </div>
+        
+        <?php
+        if(isset($_SESSION['user_id'])) {
+        ?>
+                <ul id="userMenu" class="dropdown-content">
+                <?php
+                if ($User -> GetAccountStatus() == 0) {
+                ?>
+                <li>
+                    <a class="valign-wrapper"><i class="material-icons yellow-text text-darken-2">report_problem</i> Account not activated!</a>
+                </li>
+                <?php
+                }
+                ?>
+                <li><a href="profile.php">Profile</a></li>
+                <li><a href="profile.php">Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="includes/logout.inc.php?user_id=<?php echo $_SESSION['user_id']; ?>" class="red-text">Logout</a></li>
+            </ul>
+        <?php
+        }
+        ?>
 
-        <ul class="sidenav" id="main-mobile-nav">
-            <li><a href="#login" class="green-text modal-trigger"><b>LOGIN</b></a></li>
-            <li><a href="" class="btn btn-large green"><i class="material-icons left">camera_alt</i><b>SELL</b></a></li>
-        </ul>
+        

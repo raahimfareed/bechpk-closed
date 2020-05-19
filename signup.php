@@ -12,6 +12,7 @@ session_start();
 
 <body class="grey lighten-4">
     <?php include('modules/navbar.php'); ?>
+    <?php include('modules/sidenav.php'); ?>
 
         <?php include('modules/feedback_btn.php'); ?>
         
@@ -29,14 +30,15 @@ session_start();
                         <form action="includes/form-handlers/signup.inc.php" method="POST">
                             <div class="row">
                                 <div class="col s12">
-                                    <p class="left-align">
+                                    <p>
                                         <b class="red-text">
                                             <?php
-                                            if (isset($_SESSION['errors_array']) && !empty($_SESSION['errors_array'])) {
-                                                foreach ($_SESSION['errors_array'] as $error) {
+                                            // var_dump($_SESSION['errors_array']);
+                                            if (isset($_SESSION['signup_errors_array']) && !empty($_SESSION['signup_errors_array'])) {
+                                                foreach ($_SESSION['signup_errors_array'] as $error) {
                                                     echo $error;
                                                 }
-                                                $_SESSION['errors_array'] = [];
+                                                // $_SESSION['errors_array'] = [];
                                             }
                                             ?>
                                         </b>

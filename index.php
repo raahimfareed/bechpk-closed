@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('classes/user.class.php');
 ?>
 
 <!DOCTYPE html>
@@ -12,12 +13,10 @@ session_start();
 
 <body class="grey lighten-4">
     <?php include('modules/navbar.php'); ?>
-
-        <?php include('modules/slider.php'); ?>
-
-        <?php include('modules/feedback_btn.php'); ?>
-
-        <?php include('modules/login_form.php'); ?>
+    <?php include('modules/sidenav.php'); ?>
+    <?php if(!isset($_SESSION['user_id'])) include('modules/slider.php'); ?>
+    <?php include('modules/feedback_btn.php'); ?>
+    <?php include('modules/login_form.php'); ?>
 
         <section>
             <div class="container">
@@ -57,7 +56,7 @@ session_start();
                         <a href="">
                             <div class="card hoverable small">
                                 <div class="card-image">
-                                    <img src="https://source.unsplash.com/250x252/?mobile" alt="" />
+                                    <img src="./assets/img/profile-pics/defaults/head_alizarin.png" alt="" />
                                 </div>
                                 <div class="card-content">
                                     <h6 class="truncate black-text"><b>77,000</b></h6>

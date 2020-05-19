@@ -1,22 +1,32 @@
         <div id="login" class="modal">
-            <form action="includes/user-login.inc.php">
+            <form action="includes/form-handlers/login.inc.php" method="POST">
                 <div class="modal-content">
                     <a href="#!" class="right modal-close btn btn-small red lighten-1">x</a>
                     <div class="row">
                         <div class="col s12">
                             <h4>Login</h4>
+                            <p><b class="red-text">
+                            <?php
+                            if (isset($_SESSION['login_errors_array']) && !empty($_SESSION['login_errors_array'])) {
+                                foreach ($_SESSION['login_errors_array'] as $error) {
+                                    echo $error;
+                                }
+                                $_SESSION['login_errors_array'] = [];
+                            }
+                            ?>
+                            </b></p>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input type="text" id="user_email" name="user_email" />
-                                    <label for="user_email">E-mail</label>
+                                    <input type="text" id="login_email" name="login_email" value="<?php if(isset($_SESSION['login_email'])) echo $_SESSION['login_email']; ?>" />
+                                    <label for="login_email">E-mail</label>
                                 </div>
                                 <div class="col s12 input-field">
-                                    <input type="password" id="user_password" name="user_password" />
-                                    <label for="user_password">Password</label>
+                                    <input type="password" id="login_password" name="login_password" />
+                                    <label for="login_password">Password</label>
                                     <span class="helper-text">Never share your password with anyone!</span>
                                 </div>
                                 <div class="col s12 center-align">
-                                    <input type="submit" class="btn green darken-1 login-btn" name="user-login" value="LOGIN" />
+                                    <input type="submit" class="btn green darken-1 login-btn" name="login_button" value="LOGIN" />
                                 </div>
                             </div>
                             <div class="row">
