@@ -13,6 +13,7 @@ Class User extends Dbh {
     protected $active_ads;
     protected $account_status;
     protected $account_type;
+    protected $profile_likes;
     protected $registration_date;
 
     public function AddUser($user_id, $first_name, $last_name, $email, $password, $profile_pic, $date) {
@@ -23,6 +24,11 @@ Class User extends Dbh {
         }
     }
 
+
+    public function CheckUser($user_id) {
+        
+    }
+
     public function LoginUser($email, $password) {
         $sql = "SELECT * from users where `Email` = ?";
         $stmt = $this -> GetDB() -> prepare($sql);
@@ -30,13 +36,16 @@ Class User extends Dbh {
         if ($stmt -> execute([$email])) {
             $row = $stmt -> fetch();
 
+            // Check if account is banned
             if ($row['AccountStatus'] == 2) {
                 return 12;
                 
             } else {
                 if (password_verify($password, $row['Password'])) {
+                    // Correct password
                     return 11;
                 } else {
+                    // Incorrect pasword
                     return 10;
                 }
             }
@@ -60,7 +69,9 @@ Class User extends Dbh {
             $this -> active_ads = $row['ActiveAds'];
             $this -> account_status = $row['AccountStatus'];
             $this -> account_type = $row['AccountType'];
-            $this -> registration_date = $row['RegistrationDate'];
+            $this -> profile_likes = $row['ProfileLikes'];
+            $reg_date = new DateTime($row['RegistrationDate']);
+            $this -> registration_date = $reg_date -> format("d-M-Y");
             return true;
         }
     }
@@ -118,5 +129,11 @@ Class User extends Dbh {
     }
     public function GetAccountType() {
         return $this -> account_type;
+    }
+    public function GetProfileLikes() {
+        return $this -> profile_likes;
+    }
+    public function GetRegistrationDate() {
+        return $this -> registration_date;
     }
 }

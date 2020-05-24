@@ -24,6 +24,10 @@
             } 
             ?>
             <li><a href="" class="btn btn-large green"><i class="material-icons left">camera_alt</i><b>SELL</b></a></li>
+            <li><a href="">My Ads</a></li>
+            <li><a href="">Notifications</a></li>
+            <li><a href="">Account Type</a></li>
+            <li><a href="">Chat</a></li>
             <li><a href="profile.php?<?php echo $_SESSION['user_id']; ?>">Profile</a></li>
             <li><a href="settings.php">Settings</a></li>
             <li><a href="includes/logout.inc.php?user_id=<?php echo $_SESSION['user_id']; ?>" class="red-text">Logout</a></li>

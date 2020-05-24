@@ -1,3 +1,20 @@
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 85%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 90%;
+  }
+}
+
 ::-moz-selection {
   background-color: #4ca048;
   color: #eeeeee;
@@ -63,7 +80,10 @@
   max-width: 500px;
 }
 
-#login .login-btn, #login .facebook-login-btn, #login .google-login-btn, #login .create-account-btn {
+#login .login-btn,
+#login .facebook-login-btn,
+#login .google-login-btn,
+#login .create-account-btn {
   width: 100%;
   background-color: transparent;
   -webkit-box-shadow: none;
@@ -72,7 +92,10 @@
   transition: all 100ms ease;
 }
 
-#login .login-btn:hover, #login .facebook-login-btn:hover, #login .google-login-btn:hover, #login .create-account-btn:hover {
+#login .login-btn:hover,
+#login .facebook-login-btn:hover,
+#login .google-login-btn:hover,
+#login .create-account-btn:hover {
   color: #eeeeee;
 }
 
@@ -124,5 +147,11 @@
   width: 48px;
   height: 48px;
   border-radius: 5px;
+}
+
+.profile-user-img {
+  border-radius: 5px;
+  height: auto;
+  width: 100%;
 }
 /*# sourceMappingURL=main.css.map */

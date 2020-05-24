@@ -1,4 +1,3 @@
-        <div id="login" class="modal section">
             <form action="includes/form-handlers/login.inc.php" id='login_form' method="POST">
                 <div class="modal-content">
                     <a href="#!" class="right modal-close btn btn-small red lighten-1">x</a>
@@ -19,12 +18,11 @@
                                 <div class="input-field col s12">
                                     <input type="text" id="login_email" name="login_email" value="<?php if(isset($_SESSION['login_email'])) echo $_SESSION['login_email']; ?>" />
                                     <label for="login_email">E-mail</label>
-                                    <span class="helper-text red-text right" id='email-error'></span>
                                 </div>
                                 <div class="col s12 input-field">
                                     <input type="password" id="login_password" name="login_password" />
                                     <label for="login_password">Password</label>
-                                    <span class="helper-text right" id='password-error'>Never share your password with anyone!</span>
+                                    <span class="helper-text">Never share your password with anyone!</span>
                                 </div>
                                 <div class="col s12 center-align">
                                     <input type="submit" id='login_button' class="btn green darken-1 login-btn" name="login_button" value="LOGIN" />
@@ -56,14 +54,3 @@
                     </div>
                 </div>
             </form>
-            <div class="row" id='login_loader'>
-                <div class="col s12 center-align">
-                    <h3 class="flow-text">Please wait!</h3>
-                </div>
-                <div class="col s6 offset-s3">
-                    <div class="progress">
-                        <div class="indeterminate"></div>
-                    </div>
-                </div>
-            </div>
-        </div>

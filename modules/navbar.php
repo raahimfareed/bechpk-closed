@@ -70,7 +70,7 @@
                 <?php
                 }
                 ?>
-                <li><a href="profile.php">Profile</a></li>
+                <li><a href="profile.php">Profile <span class="badges green right">1</span></a></li>
                 <li><a href="profile.php">Settings</a></li>
                 <li class="divider"></li>
                 <li><a href="includes/logout.inc.php?user_id=<?php echo $_SESSION['user_id']; ?>" class="red-text">Logout</a></li>
