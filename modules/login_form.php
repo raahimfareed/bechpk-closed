@@ -5,19 +5,9 @@
                     <div class="row">
                         <div class="col s12">
                             <h4>Login</h4>
-                            <p><b class="red-text">
-                            <?php
-                            if (isset($_SESSION['login_errors_array']) && !empty($_SESSION['login_errors_array'])) {
-                                foreach ($_SESSION['login_errors_array'] as $error) {
-                                    echo $error;
-                                }
-                                $_SESSION['login_errors_array'] = [];
-                            }
-                            ?>
-                            </b></p>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input type="text" id="login_email" name="login_email" value="<?php if(isset($_SESSION['login_email'])) echo $_SESSION['login_email']; ?>" />
+                                    <input type="text" id="login_email" name="login_email" />
                                     <label for="login_email">E-mail</label>
                                     <span class="helper-text red-text right" id='email-error'></span>
                                 </div>

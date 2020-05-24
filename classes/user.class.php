@@ -4,6 +4,7 @@
 require_once('dbh.class.php');
 
 Class User extends Dbh {
+    protected $user_id;
     protected $first_name;
     protected $last_name;
     protected $email;
@@ -25,8 +26,24 @@ Class User extends Dbh {
     }
 
 
-    public function CheckUser($user_id) {
-        
+    public function UserExists($email) {
+        $sql = "SELECT * from users where `Email` = ?";
+        $stmt = $this -> GetDB() -> prepare($sql);
+        $stmt -> execute([$email]);
+        if ($stmt -> rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public function GetUserId($email) {
+        $sql = "SELECT * from users where Email = ?";
+        $stmt = $User -> GetDB() -> prepare($sql);
+        $stmt -> execute([$email]);
+        $row = $stmt -> fetch();
+        $this -> user_id = $row['userId'];
+        return $this -> user_id;
     }
 
     public function LoginUser($email, $password) {
@@ -34,21 +51,24 @@ Class User extends Dbh {
         $stmt = $this -> GetDB() -> prepare($sql);
 
         if ($stmt -> execute([$email])) {
-            $row = $stmt -> fetch();
+            if ($stmt -> rowCount() > 0) {
+                $row = $stmt -> fetch();
 
-            // Check if account is banned
-            if ($row['AccountStatus'] == 2) {
-                return 12;
-                
-            } else {
-                if (password_verify($password, $row['Password'])) {
-                    // Correct password
-                    return 11;
+                // Check if account is banned
+                if ($row['AccountStatus'] == 2) {
+                    return 13;
+                    
                 } else {
-                    // Incorrect pasword
-                    return 10;
+                    if (password_verify($password, $row['Password'])) {
+                        // Correct password
+                        return 12;
+                    } else {
+                        // Incorrect pasword
+                        return 11;
+                    }
                 }
-            }
+                // Account does not exist
+            } else return 10;
         }
     }
 

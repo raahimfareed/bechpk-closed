@@ -36,24 +36,22 @@ $(document).ready(function() {
             email.css('border', '1px solid red');
             emailError.html('Please enter a valid email!');
         } else {
-            alert('All Good');
+            $('#login_form').hide();
+            $('#login_loader').show();
+            $.ajax({
+                url: 'includes/form-handlers/login.inc.php',
+                type: 'POST',
+                data: {
+                    login_email: email.val(),
+                    login_password: password.val(),
+                    login_button: true
+                },
+                cache: false,
+    
+                success: function(data) {
+                    
+                }
+            });
         }
-        
-        // $('#login_form').hide();
-        // $('#login_loader').show();
-        // $.ajax({
-        //     url: 'includes/form-handlers/login.inc.php',
-        //     type: 'POST',
-        //     data: {
-        //         login_email: email.val(),
-        //         login_password: password.val(),
-        //         login_button: true
-        //     },
-        //     cache: false,
-
-        //     success: function(data) {
-        //         location.reload()l
-        //     }
-        // });
     });
 });
