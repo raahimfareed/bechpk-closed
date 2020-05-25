@@ -17,7 +17,7 @@ Class Dbh {
         $this -> username = "root";
         $this -> password = "";
         try {
-            $dsn = "mysql:host={$this -> host};dbname={$this -> dbname};port={$this -> port};charset={$this -> charset}";
+            $dsn = "mysql:host={$this -> host};dbname={$this -> dbname};charset={$this -> charset}";
             $options = [
                 PDO::ATTR_ERRMODE,
                 PDO::ERRMODE_EXCEPTION

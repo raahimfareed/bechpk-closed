@@ -5,6 +5,7 @@
                     <div class="row">
                         <div class="col s12">
                             <h4>Login</h4>
+                            <p class="center-align red-text"><b id="fallback-error"></b></p>
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input type="text" id="login_email" name="login_email" />

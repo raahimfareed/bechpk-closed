@@ -9,5 +9,6 @@ create table users (
     TotalAds int(7) default 0,
     ActiveAds int(7) default 0,
     AccountStatus int(2) DEFAULT 0,
-    AccountType varchar(50) default 'Basic'
+    AccountType varchar(50) default 'Basic',
+    RegistrationDate date not null
     );

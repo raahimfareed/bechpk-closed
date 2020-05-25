@@ -27,40 +27,39 @@ session_start();
                         </h4>
                     </div>
                     <div class="col s12 m6">
-                        <form action="includes/form-handlers/signup.inc.php" method="POST">
+                        <form action="includes/form-handlers/signup.inc.php" method="POST" id='signup_form'>
                             <div class="row">
                                 <div class="col s12">
-                                    <p>
-                                        <b class="red-text">
-                                            <?php
-                                            if (isset($_SESSION['signup_errors_array']) && !empty($_SESSION['signup_errors_array'])) {
-                                                foreach ($_SESSION['signup_errors_array'] as $error) {
-                                                    echo $error;
-                                                }
-                                            }
-                                            ?>
+                                    <p class='red-text center-align'>
+                                        <b id="signupFallbackError">
+                                            
                                         </b>
                                     </p>
                                 </div>
                                 <div class="col s6 input-field">
                                     <input type="text" name="signup_first_name" id="signup_first_name" value="<?php if(isset($_SESSION['signup_first_name'])) echo $_SESSION['signup_first_name']; ?>" />
                                     <label for="signup_first_name">First Name</label>
+                                    <span class="helper-text red-text right" id="firstNameError"></span>
                                 </div>
                                 <div class="col s6 input-field">
                                     <input type="text" name="signup_last_name" id="signup_last_name" value="<?php if(isset($_SESSION['signup_last_name'])) echo $_SESSION['signup_last_name']; ?>" />
                                     <label for="signup_last_name">Last Name</label>
+                                    <span class="helper-text red-text right" id="lastNameError"></span>
                                 </div>
                                 <div class="col s12 input-field">
                                     <input type="email" name="signup_email" id="signup_email" value="<?php if(isset($_SESSION['signup_email'])) echo $_SESSION['signup_email']; ?>" />
                                     <label for="signup_email">E-mail</label>
+                                    <span class="helper-text red-text right" id="emailError"></span>
                                 </div>
                                 <div class="col s6 input-field">
                                     <input type="password" name="signup_password" id="signup_password" />
                                     <label for="signup_password">Password</label>
+                                    <span class="helper-text red-text right" id="passwordError"></span>
                                 </div>
                                 <div class="col s6 input-field">
                                     <input type="password" name="signup_confirm_password" id="signup_confirm_password" />
                                     <label for="signup_confirm_password">Confirm Password</label>
+                                    <span class="helper-text red-text right" id="confirmPasswordError"></span>
                                 </div>
                                 <div class="col s12 input-field right-align">
                                     <input type="submit" value="SIGNUP" class="btn green darken-1" name="signup_submit" />
@@ -85,6 +84,7 @@ session_start();
     <?php include('modules/footer.php'); ?>
     
     <?php include('modules/scripts.php'); ?>
+    <script src="assets/js/ajax/signup.ajax.js"></script>
 </body>
 
 </html>
