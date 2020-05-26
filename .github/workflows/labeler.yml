@@ -1,0 +1,18 @@
+# Add 'User' label to any root file changes
+User:
+  - ./*
+  
+# Add 'Admin' label to any change within the 'core' package
+Admin:
+  - package/admin/*
+  - package/admin/**/*
+  
+# Add 'Classes' label to any change within the 'core' package
+Classes:
+  - package/classes/*
+  - package/classes/**/*
+
+# Add 'test' label to any change to *.spec.js files within the source dir
+ajax:
+  - src/**/*.ajax.js
+  - src/**/*.ajax.php
