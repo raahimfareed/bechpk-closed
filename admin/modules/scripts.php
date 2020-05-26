@@ -9,6 +9,7 @@
     <script src="assets/js/init/modal.js"></script>
     <script src="assets/js/init/dropdown.js"></script>
     <script src="assets/js/init/parallax.js"></script>
+    <script src="assets/js/init/collapsible.js"></script>
     <!-- AJAX -->
     <script src="assets/js/ajax/login.ajax.js"></script>
     <script src="assets/js/ajax/logout.ajax.js"></script>

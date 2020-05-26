@@ -1,12 +1,12 @@
 $(document).ready(function() {
-    $('#login_form').submit(function(event) {
+    $('#adminLogin').submit(function(event) {
         event.preventDefault();
 
-        var email = $('#login_email');
-        var password = $('#login_password');
+        var email = $('#admin_email');
+        var password = $('#admin_password');
         var emailError = $('#email-error');
         var passwordError = $('#password-error');
-        var fallbackError = $('#fallback-error')
+        var fallbackError = $('#fallback-error');
         var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
         email.css('border', '');
@@ -38,60 +38,40 @@ $(document).ready(function() {
             email.css('border', '1px solid red');
             emailError.html('Please enter a valid email!');
         } else {
-            $('#login_form').hide();
+            $('#adminLogin').hide();
             $('#login_loader').show();
             $.ajax({
-                url: 'ajax/login-handler/user_check.ajax.php',
+                url: 'ajax/handlers/check_admin.ajax.php',
                 type: 'POST',
-                data: {login_email: email.val()},
+                data: {admin_email: email.val()},
                 cache: false,
                 success: function(data) {
                     if (data == 1) {
                         $.ajax({
-                            url: 'ajax/login-handler/user_verify.ajax.php',
+                            url: 'ajax/login-handler/verify_admin.ajax.php',
                             type: 'POST',
                             data: {
-                                login_email: email.val(),
-                                login_password: password.val(),
+                                admin_email: email.val(),
+                                admin_password: password.val(),
                                 login_button: true
                             },
                             cache: false,
                             success: function(data) {
-                                switch (data) {
-                                    case '0':
-                                        $('#login_form').show();
-                                        $('#login_loader').hide();
-                                        email.css('border', '1px solid red');
-                                        emailError.html('This email is not registered');
-                                        break;
-                                    case '1':
-                                        $('#login_form').show();
-                                        $('#login_loader').hide();
-                                        password.css('border', '1px solid red');
-                                        passwordError.toggleClass('red-text');
-                                        passwordError.html('Wrong password!');
-                                        break;
-                                    case '2':
-                                        location = 'index.php';
-                                        break;
-                                    case '3':
-                                        $('#login_form').show();
-                                        $('#login_loader').hide();
-                                        fallbackError.html('This account is temporarily banned!')
-                                        break;
-                                    default:
-                                        $('#login_form').show();
-                                        $('#login_loader').hide();
-                                        fallbackError.html('An error occurred :( Please try again later!');
-                                        break;
+                                if (data == 0) {
+                                    $('#adminLogin').show();
+                                    $('#login_loader').hide();
+                                    password.css('border', '1px solid red');
+                                    passwordError.html('Incorrect password');
+                                } else if (data == 1) {
+                                    location = 'dashboard.php';
                                 }
                             }
                         });
                     } else {
-                        $('#login_form').show();
+                        $('#adminLogin').show();
                         $('#login_loader').hide();
                         email.css('border', '1px solid red');
-                        emailError.html('This email is not registered');
+                        emailError.html('Oops, you do not have the authority!');
                     }
                 }
             });

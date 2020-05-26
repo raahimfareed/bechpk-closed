@@ -6,4 +6,10 @@
 .admin-login-btn {
   width: 50%;
 }
+
+#login_loader {
+  display: none;
+  height: 300px;
+  margin-top: -40px;
+}
 /*# sourceMappingURL=index.css.map */

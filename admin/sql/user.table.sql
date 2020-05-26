@@ -1,5 +1,6 @@
 create table users (
-    UserId varchar(60) primary key not null,
+    Id int(11) primary key not null AUTO_INCREMENT,
+    UserId varchar(60) unique key not null,
     FirstName varchar(25) not null,
     LastName varchar(25) not null,
     Email varchar(255) not null,
