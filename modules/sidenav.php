@@ -30,7 +30,7 @@
             <li><a href="">Chat</a></li>
             <li><a href="profile.php?<?php echo $_SESSION['user_id']; ?>">Profile</a></li>
             <li><a href="settings.php">Settings</a></li>
-            <li><a href="includes/logout.inc.php?user_id=<?php echo $_SESSION['user_id']; ?>" class="red-text">Logout</a></li>
+            <li><a href="includes/logout.inc.php?user_id=<?php echo $_SESSION['user_id']; ?>" class="red-text logout_trigger">Logout</a></li>
         </ul>
         <?php
         } else {

@@ -32,7 +32,15 @@ session_start();
                                 <div class="col s12">
                                     <p class='red-text center-align'>
                                         <b id="signupFallbackError">
-                                            
+                                            <?php
+                                            if (isset($_SESSION['signup_errors_array'])) {
+                                                if (!empty($_SESSION['signup_errors_array'])) {
+                                                    foreach ($_SESSION['signup_errors_array'] as $error) {
+                                                        echo $error;
+                                                    }
+                                                }
+                                            }
+                                            ?>
                                         </b>
                                     </p>
                                 </div>

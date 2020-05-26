@@ -5,7 +5,19 @@
                     <div class="row">
                         <div class="col s12">
                             <h4>Login</h4>
-                            <p class="center-align red-text"><b id="fallback-error"></b></p>
+                            <p class="center-align red-text">
+                                <b id="fallback-error">
+                                <?php
+                                if (isset($_SESSION['login_errors_array'])) {
+                                    if (!empty($_SESSION['login_errors_array'])) {
+                                        foreach ($_SESSION['login_errors_array'] as $error) {
+                                            echo $error;
+                                        }
+                                    }
+                                }
+                                ?>
+                                </b>
+                            </p>
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input type="text" id="login_email" name="login_email" />

@@ -17,14 +17,7 @@ Class User extends Dbh {
     protected $profile_likes;
     protected $registration_date;
 
-    public function AddUser($user_id, $first_name, $last_name, $email, $password, $profile_pic, $date) {
-        $sql = "INSERT into users (`UserId`, `FirstName`, `LastName`, `Email`, `Password`, `ProfileImage`, `RegistrationDate`) values (?, ?, ?, ?, ?, ?, ?);";
-        $stmt = $this -> GetDB() -> prepare($sql);
-        if ($stmt -> execute([$user_id, $first_name, $last_name, $email, $password, $profile_pic, $date])) {
-            return true;
-        }
-    }
-
+    
     public function AjaxAddUser ($first_name, $last_name, $email, $password, $date) {
         $user_id = md5(uniqid('', true));
         $sql = "SELECT * from users where `UserId` = ?";
@@ -34,72 +27,72 @@ Class User extends Dbh {
                 $user_id = md5(uniqid('', true));
             }
         }
-
+        
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
         $rand = mt_rand(1, 16); // Random number in between 1 and 16
-
+        
         switch ($rand) {
             case 1:
                 $profile_pic = "assets/images/profile-pics/defaults/head_alizarin.png";
                 break;
-            case 2:
+                case 2:
                 $profile_pic = "assets/images/profile-pics/defaults/head_amethyst.png";
-                break;
+            break;
             case 3:
                 $profile_pic = "assets/img/profile-pics/defaults/head_belize_hole.png";
-                break;
+            break;
             case 4:
                 $profile_pic = "assets/img/profile-pics/defaults/head_carrot.png";
-                break;
+            break;
             case 5:
                 $profile_pic = "assets/img/profile-pics/defaults/head_deep_blue.png";
-                break;
+            break;
             case 6:
                 $profile_pic = "assets/img/profile-pics/defaults/head_emerald.png";
-                break;
+            break;
             case 7:
                 $profile_pic = "assets/img/profile-pics/defaults/head_green_sea.png";
-                break;
+            break;
             case 8:
                 $profile_pic = "assets/img/profile-pics/defaults/head_nephritis.png";
-                break;
+            break;
             case 9:
                 $profile_pic = "assets/img/profile-pics/defaults/head_pete_river.png";
-                break;
+            break;
             case 10:
                 $profile_pic = "assets/img/profile-pics/defaults/head_pomegranate.png";
-                break;
+            break;
             case 11:
                 $profile_pic = "assets/img/profile-pics/defaults/head_pumpkin.png";
                 break;
             case 12:
                 $profile_pic = "assets/img/profile-pics/defaults/head_red.png";
                 break;
-            case 13:
+                case 13:
                 $profile_pic = "assets/img/profile-pics/defaults/head_sun_flower.png";
-                break;
+            break;
             case 14:
                 $profile_pic = "assets/img/profile-pics/defaults/head_turqoise.png";
-                break;
+            break;
             case 15:
                 $profile_pic = "assets/img/profile-pics/defaults/head_wet_asphalt.png";
                 break;
-            case 16:
+                case 16:
                 $profile_pic = "assets/img/profile-pics/defaults/head_wisteria.png";
-                break;
+            break;
             default:
-                $profile_pic = "assets/img/profile-pics/defaults/head_wet_asphalt.png";
-                break;
+            $profile_pic = "assets/img/profile-pics/defaults/head_wet_asphalt.png";
+        break;
         }
-
+        
         $sql = "INSERT into users (`UserId`, `FirstName`, `LastName`, `Email`, `Password`, `ProfileImage`, `RegistrationDate`) values (?, ?, ?, ?, ?, ?, ?);";
         $stmt = $this -> GetDB() -> prepare($sql);
         if ($stmt -> execute([$user_id, $first_name, $last_name, $email, $hashed_password, $profile_pic, $date])) {
             return true;
         }
     }
-
+    
     public function UserExists($email) {
         $sql = "SELECT * from users where `Email` = ?";
         $stmt = $this -> GetDB() -> prepare($sql);
@@ -110,23 +103,23 @@ Class User extends Dbh {
             return false;
         }
     }
-
+    
     public function VerifyPassword($email, $password) {
         $sql = "SELECT * from users where Email = ?";
         $stmt = $this -> GetDB() -> prepare($sql);
         
         $stmt -> execute([$email]);
-
+        
         if ($stmt -> rowCount() > 0) {
             $row = $stmt -> fetch();
-
+            
             if ($row['AccountStatus'] == 2) return 13;
             else {
                 if (password_verify($password, $row['Password'])) return 12;
                 else return 11;
             }
         } else return 10;
-
+        
     }
     
     public function GetUserId($email) {
@@ -137,7 +130,15 @@ Class User extends Dbh {
         $this -> user_id = $row['UserId'];
         return $this -> user_id;
     }
-
+    
+    public function AddUser($user_id, $first_name, $last_name, $email, $password, $profile_pic, $date) {
+        $sql = "INSERT into users (`UserId`, `FirstName`, `LastName`, `Email`, `Password`, `ProfileImage`, `RegistrationDate`) values (?, ?, ?, ?, ?, ?, ?);";
+        $stmt = $this -> GetDB() -> prepare($sql);
+        if ($stmt -> execute([$user_id, $first_name, $last_name, $email, $password, $profile_pic, $date])) {
+            return true;
+        }
+    }
+    
     public function LoginUser($email, $password) {
         $sql = "SELECT * from users where `Email` = ?";
         $stmt = $this -> GetDB() -> prepare($sql);

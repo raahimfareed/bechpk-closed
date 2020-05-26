@@ -1,0 +1,9 @@
+.parallax-container img {
+  -webkit-filter: brightness(25%);
+          filter: brightness(25%);
+}
+
+.admin-login-btn {
+  width: 50%;
+}
+/*# sourceMappingURL=index.css.map */
