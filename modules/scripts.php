@@ -8,7 +8,9 @@
     <script src="assets/js/init/floating-action-btn.js"></script>
     <script src="assets/js/init/modal.js"></script>
     <script src="assets/js/init/dropdown.js"></script>
+    <script src="assets/js/init/autocomplete.js"></script>
     <!-- AJAX -->
     <script src="assets/js/ajax/login.ajax.js"></script>
     <script src="assets/js/ajax/logout.ajax.js"></script>
+    <script src="assets/js/ajax/update_search.ajax.js"></script>
     

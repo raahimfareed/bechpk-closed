@@ -21,8 +21,8 @@
     </li>
     <li><a href="?p=0"><i class="material-icons left">dashboard</i> Dashboard</a></li>
     <li><a href="?p=1"><i class="material-icons left">verified_user</i> Admins</a></li>
-    <li><a href="?p=1"><i class="material-icons left">group</i> Users</a></li>
-    <li><a href="?p=1"><i class="material-icons left">image</i> Ads</a></li>
-    <li><a href="?p=1"><i class="material-icons left">payment</i> Transactions</a></li>
-
+    <li><a href="?p=2"><i class="material-icons left">group</i> Users</a></li>
+    <li><a href="?p=3"><i class="material-icons left">list</i> Categories</a></li>
+    <li><a href="?p=4"><i class="material-icons left">image</i> Ads</a></li>
+    <li><a href="?p=5"><i class="material-icons left">payment</i> Transactions</a></li>
 </ul>

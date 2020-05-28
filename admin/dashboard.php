@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['admin_id']) || empty($_SESSION['admin_id'])) {
+    header('Location: index.php');
+} else {
+
 require_once('classes/admin.class.php');
 $Admin = new Admin();
 $Admin -> GetInfo($_SESSION['admin_id']);
@@ -11,7 +15,8 @@ $Admin -> GetInfo($_SESSION['admin_id']);
 <head>
     <?php include('modules/head.php'); ?>
     <link rel="stylesheet" href="assets/css/sidenav.css">
-
+    <link rel="stylesheet" href="assets/css/tables.css">
+    
     <title>Bech.pk - Admin Panel</title>
 </head>
 
@@ -22,12 +27,15 @@ $Admin -> GetInfo($_SESSION['admin_id']);
     <div class="container">
         <?php
         if (!isset($_GET['p']) || empty($_GET['p'])) {
-            include('modules/main_dashboard.php');
+            include('modules/dashboard/main_dashboard.php');
         } else {
             switch ($_GET['p']) {
+                case '1':
+                    include('modules/dashboard/admins.php');
+                    break;
                 default:
-                include('modules/error.php');
-                break;
+                    include('modules/dashboard/error.php');
+                    break;
             }
         }
         ?>
@@ -39,3 +47,7 @@ $Admin -> GetInfo($_SESSION['admin_id']);
 </body>
 
 </html>
+
+<?php
+}
+?>

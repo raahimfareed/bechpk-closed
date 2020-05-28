@@ -156,4 +156,11 @@ Class Admin extends Dbh {
         return $this -> registration_date;
     }
 
+    public function GetAdminsNum() {
+        $sql = "SELECT * from admins";
+        $stmt = $this -> GetDB() -> prepare($sql);
+        $stmt -> execute();
+        return $stmt -> rowCount();
+    }
+
 }

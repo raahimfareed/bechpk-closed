@@ -3,4 +3,13 @@
   height: 300px;
   padding-top: 125px;
 }
+
+.custom-small {
+  height: 200px;
+}
+
+.all-admin-img {
+  width: 22px;
+  height: 22px;
+}
 /*# sourceMappingURL=helpers.css.map */

@@ -29,8 +29,8 @@
         <div class="nav-wrapper grey lighten-3">
             <form class="container" method="get" action="post">
                 <div class="input-field">
-                    <input id="search" class="tooltipped" type="search" data-position="bottom"
-                        data-tooltip="Search for Mobiles, Cars, and much more" title="" required />
+                    <input id="search" class="tooltipped autocomplete" type="search" data-position="bottom"
+                        data-tooltip="Search for Mobiles, Cars, and much more" title="" autocomplete="off" required />
                     <label class="label-icon" for="search"><i class="material-icons grey-text">search</i></label>
                     <i class="material-icons">close</i>
                 </div>

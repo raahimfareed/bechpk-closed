@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('classes/admin.class.php');
-if (isset($_SESSION['admin_id']) && !empty($_SESSION['user_id'])) {
+if (isset($_SESSION['admin_id']) && !empty($_SESSION['admin_id'])) {
     header('Location: dashboard.php');
     exit();
 } else {
